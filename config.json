@@ -1,0 +1,44 @@
+{  
+  "db_config": {
+    "host" : "127.0.0.1",
+	"port" : "30000",
+
+	"dbName" : "Info-River",
+	"uName" : "devl",
+	"pwd" : "devl"	
+  },
+  
+  "server_config": {
+    "port" : "9999"    
+  },
+   
+  "logger": {    
+	"logAppender" : "console",
+	"logFilename" :  "InfoRiver.log",
+	"logCategory" : "InfoRiver",
+	"logLevel" : "DEBUG"	
+   },
+  
+  "common": {
+       "contentLength" : "contentLength",
+        "start" : "start",
+	"subject" : "subject",
+
+	"firstname" : "firstname",
+	"lastname" : "lastname",
+	"gender" : "gender",
+
+	"title" : "titleIn",
+	"description" : "descriptionIn",
+	"URL" : "URLIn",
+
+	"name" : "name",
+	"link" : "link",
+
+	"filename" : "fileName",
+	
+	"resultSize" : "20",
+	
+	"recurrenceRule" : "30 * * * *"
+  }  
+}

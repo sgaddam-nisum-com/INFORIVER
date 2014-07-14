@@ -1,0 +1,22 @@
+{
+  "name": "InfoRiver",
+  "description": "Sample InfoRiver Project to read feeds from goven urls and save them to db",
+  "author": "Sandeep G",
+  "version": "0.0.1",
+  "private": true,  
+   "engines": {
+    "node": "0.10.x"
+  },
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "dependencies": {
+    "express": "3.4.4",
+    "feed-read": "*",
+    "log4js": "*",
+    "mongojs": "*",
+    "mongodb": "*",
+    "cf-autoconfig": "*",
+    "node-schedule": "*"
+  }
+}

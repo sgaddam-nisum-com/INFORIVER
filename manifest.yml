@@ -1,0 +1,9 @@
+---
+applications:
+- name: InfoRiver
+  memory: 256M
+  instances: 1
+  host: InfoRiver
+  domain: cfapps.io
+  path: .
+  command: node server/server.js

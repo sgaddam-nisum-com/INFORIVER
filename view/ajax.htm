@@ -1,0 +1,169 @@
+<html>
+<head>
+<title>UI</title>
+<link href="./css/form.css" rel="stylesheet" type="text/css" />
+<style>
+#container {
+    width:100%;
+    text-align:center;
+}
+
+#left {
+    float:left;
+    width:100px;
+}
+
+#center {
+    display: inline-block;
+    margin:0 auto;
+    width:100px;
+}
+
+#right {
+    float:right;
+    width:100px;
+}
+</style>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script language="Javascript">
+
+var incr = 0;
+	function call(strURL,bool) {
+		incr++;
+		$.ajax({
+			type : 'GET',
+			dataType : "json",
+			url : strURL+incr,
+			success : function(responseData, textStatus, jqXHR) {
+				var data = JSON.parse(responseData);
+				if(bool)
+					loadUsers(responseData);
+				else
+					loadFeeds(responseData);
+			},
+			error : function(responseData, textStatus, errorThrown) {
+				alert('POST failed.');
+			}
+		});
+	}
+
+	function loadUsers(data) {
+		var tbody = document.getElementById("tbodyUsersDiv");
+		var obj = $.parseJSON(data);
+		$.each(obj, function(field) {
+			var tr = document.createElement("tr");
+			tbody.appendChild(tr);
+
+			var td = document.createElement("td");
+			tr.appendChild(td);
+			var newText = document.createTextNode(this['firstname']);
+			td.appendChild(newText);
+
+			var td = document.createElement("td");
+			tr.appendChild(td);
+			var newText = document.createTextNode(this['lastname']);
+			td.appendChild(newText);
+
+			var td = document.createElement("td");
+			tr.appendChild(td);
+			var newText = document.createTextNode(this['sex']);
+			td.appendChild(newText);
+
+		});
+	}
+		function loadFeeds(data) {
+			var tbody = document.getElementById("tbodyFeedsDiv");
+			var obj = $.parseJSON(data);
+			$.each(obj, function(field) {
+				var tr = document.createElement("tr");
+				tbody.appendChild(tr);
+
+				var td = document.createElement("td");
+				tr.appendChild(td);
+				var newText = document.createTextNode(this['title']);
+				td.appendChild(newText);
+
+				var td = document.createElement("td");
+				tr.appendChild(td);
+				var newText = document.createTextNode(this['description']);
+				td.appendChild(newText);
+
+				var td = document.createElement("td");
+				tr.appendChild(td);
+				var newText = document.createTextNode(this['URL']);
+				td.appendChild(newText);
+
+				var td = document.createElement("td");
+				tr.appendChild(td);
+				var newText = document.createTextNode(this['published']);
+				td.appendChild(newText);
+
+				var td = document.createElement("td");
+				tr.appendChild(td);
+				var newText = document.createTextNode(this['author']);
+				td.appendChild(newText);		
+			});
+
+	}
+</script>
+</head>
+<body>
+	<form name="f1">
+		<input value="Users" type="button"
+			onclick='JavaScript:call("http://localhost:9999/viewusers.htm?start=1",true)'>
+		<input value="UX DESIGN, HTML, and CSS" type="button"
+			onclick='JavaScript:call("http://inforiver.cfapps.io/viewfeeds?subject=UX%20DESIGN,%20HTML,%20and%20CSS&start=",false)'>
+
+			<input value="JAVASCRIPT" type="button"
+			onclick='JavaScript:call("http://inforiver.cfapps.io/viewfeeds?subject=JAVASCRIPT&start=",false)'>
+
+		<div class="datagrid" id="central">
+			<table>
+				<thead>
+					<tr>
+						<th colspan="3" align="center">Users</th>
+					</tr>
+				</thead>
+				<thead>
+					<tr>
+						<th>FirstName</th>
+						<th>LastName</th>
+						<th>Gender</th>
+					</tr>
+				</thead>
+				<tfoot>
+					
+				</tfoot>
+				<tbody id="tbodyUsersDiv">
+				</tbody>
+			</table>
+		</div>
+<br>
+		<div class="datagrid" id="central">
+			<table>
+				<thead>
+					<tr>
+						<th colspan="5" align="center">Feeds</th>
+					</tr>
+				</thead>
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Description</th>
+						<th>URL</th>
+						<th>Published</th>
+						<th>Author</th>
+					</tr>
+				</thead>
+				<tfoot>
+					
+				</tfoot>
+				<tbody id="tbodyFeedsDiv">
+				</tbody>
+			</table>
+		</div>
+
+	</form>
+</body>
+</html>

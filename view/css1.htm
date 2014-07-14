@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>User Form</title>
+<meta name="Generator" content="EditPlus">
+<meta name="Author" content="">
+<meta name="Keywords" content="employee ">
+<meta name="Description" content="">
+
+<script type="text/javascript">
+var uri = "http://localhost.:9999/savefeed.htm?titleIn=In+the+ECMAScript+6+shadows%3A+Native+errors&descriptionIn=ECMAScript+6+is+coming+up+on+the+horizon%2C+with+JavaScript+engines+starting+to+implement+certain+features.+There+are+some+parts+of+the+specification+that+have+received+a+lot+of+attention%3A+WeakMap%2C+classes%2C+generators%2C+modules%2C+and+more.+These+represent+large+changes+and+additions+over+the+ECMAScript+5+specification.+However%2C+there+are+certain+smaller+parts+of+the+%5B%85%5D&URLIn=http%3A%2F%2Ffeedproxy.google.com%2F%7Er%2Fnczonline%2F%7E3%2FI3kqn7oy2FY%2F";
+
+
+
+function getQuerystringNameValue()
+{
+	var queryStringArray = uri.split("?");
+       return queryStringArray[1].split("&");
+}
+
+function getQueryParamValue(queryStringParamArray,name){
+	var nameValue = null;
+		for ( var i=0; i<queryStringParamArray.length; i++ ){           
+			queryStringNameValueArray = queryStringParamArray[i].split("=");
+			if ( name == queryStringNameValueArray[0] ){
+				nameValue = queryStringNameValueArray[1];
+			}                       
+		}
+    return nameValue;
+}
+
+var arr = getQuerystringNameValue();
+
+
+
+alert("name1" + " = " + getQueryParamValue(arr,"titleIn"));
+alert("name2" + " = " + getQueryParamValue(arr,"descriptionIn"));
+alert("name3" + " = " + getQueryParamValue(arr,"URLIn"));
+
+</script>
+
+<style>
+form    {
+background: -webkit-gradient(linear, bottom, left 175px, from(#CCCCCC), to(#EEEEEE));
+background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
+margin:auto;
+position:relative;
+width:550px;
+height:450px;
+font-family: Tahoma, Geneva, sans-serif;
+font-size: 14px;
+font-style: italic;
+line-height: 24px;
+font-weight: bold;
+color: #09C;
+text-decoration: none;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+padding:10px;
+border: 1px solid #999;
+border: inset 1px solid #333;
+-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+input    {
+width:375px;
+display:block;
+border: 1px solid #999;
+height: 25px;
+-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+textarea#feedback {
+width:375px;
+height:150px;
+}
+textarea.message {
+display:block;
+}
+.bb {
+width:100px;
+position:absolute;
+right:20px;
+bottom:20px;
+background:#09C;
+color:#fff;
+font-family: Tahoma, Geneva, sans-serif;
+height:30px;
+-webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+border-radius: 15px;
+border: 1p solid #999;
+}
+
+input.button:hover {
+background:#fff;
+color:#09C;
+}
+textarea:focus, input:focus {
+border: 1px solid #09C;
+}
+</style>
+
+</head>
+<body>
+<form>
+<div>
+<h1>Contact Form :</h1>
+<label>
+<span>Your name</span><input id="name" type="text" name="name" />
+</label>
+
+<label>
+<span>Email Address</span><input id="email" type="text" name="email" />
+</label>
+
+<label>
+<span>Subject</span><input id="subject" type="text" name="subject" />
+</label>
+
+<label>
+<span>Message</span><textarea id="feedback" name="feedback"></textarea>
+<input type="submit" value="Submit Form" class="bb"/>
+</label>
+
+</div>
+</form>
+</body>
+</html>
